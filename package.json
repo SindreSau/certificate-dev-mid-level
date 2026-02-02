@@ -1,0 +1,11 @@
+{
+  "name": "certificate-dev-mid-level",
+  "version": "1.0.0",
+  "description": "Playground repository for mid-level react certificate",
+  "private": true,
+  "scripts": {
+    "lint": "pnpm -w -r eslint . --fix"
+  },
+  "author": "SindreSau",
+  "packageManager": "pnpm@10.28.2"
+}
