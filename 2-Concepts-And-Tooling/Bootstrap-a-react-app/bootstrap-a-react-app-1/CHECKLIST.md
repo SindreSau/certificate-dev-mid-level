@@ -1,0 +1,7 @@
+- You have created a new React app using Vite
+- You have navigated to the project directory
+- You have installed dependencies
+- You have started the dev server
+- You can see "Vite + React" text and both Vite and React logos in the browser
+- You can click the count button and see it increase
+- You can edit `App.jsx`, save the file, and see updates applied without page reload and without losing state (Fast Refresh)
