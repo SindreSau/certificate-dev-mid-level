@@ -11,18 +11,20 @@ export default function App() {
 
     return (
         <div className='app'>
-            {movies.map((movie) => (
-                <MovieCard
-                    key={movie.id}
-                    id={movie.id}
-                    name={movie.name}
-                    description={movie.description}
-                    image={movie.image}
-                    rating={movie.rating}
-                    genres={movie.genres}
-                    inTheatres={movie.inTheaters}
-                />
-            ))}
+            <div className='flex gap-4'>
+                {movies.map((movie) => (
+                    <MovieCard
+                        key={movie.id}
+                        id={movie.id}
+                        name={movie.name}
+                        description={movie.description}
+                        image={movie.image}
+                        rating={movie.rating}
+                        genres={movie.genres}
+                        inTheatres={movie.inTheaters}
+                    />
+                ))}
+            </div>
         </div>
     );
 }
@@ -37,16 +39,16 @@ function MovieCard({ id, name, description, image, rating, genres }) {
     }
 
     return (
-        <div id={id} className='flex flex-col max-w-md border-gray-200 border rounded-2xl overflow-hidden'>
+        <div id={id} className='flex flex-col max-w-sm border-gray-200 border rounded-2xl overflow-hidden shadow-lg'>
             <img src={image} alt={'image_' + name} className='max-h-96 object-top object-cover' />
-            <div className='mt-2 px-6 py-2 min-h-52 flex flex-col justify-between'>
+            <div className='mt-2 px-6 py-2 min-h-56 flex flex-col justify-between'>
                 <div>
                     <h2 className='movie-item-title'>{name}</h2>
                     <div className='movie-item-description-wrapper'>
                         <p className='movie-item-description'>{description}</p>
                     </div>
                     <div>
-                        <ul className='movie-item-genres-wrapper'>
+                        <ul className='movie-item-genres-wrapper mt-1'>
                             {genres.map((genre) => (
                                 <li key={'genre_key_' + genre} id={genre} className='movie-item-genre-tag'>
                                     {genre}
