@@ -2,7 +2,7 @@
 | :-------------------------- | :-----: |
 | 1 — JavaScript              |    5    |
 | 2 — Core concepts & Tooling |    1    |
-| 3 — JSX                     |    1    |
+| 3 — JSX                     |    3    |
 |                             | _**X**_ |
 
 Kommentar til hvert kapittel:
