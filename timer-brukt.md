@@ -1,12 +1,14 @@
-| Kapittel                    |  Timer  |
-| :-------------------------- | :-----: |
-| 1 — JavaScript              |    5    |
-| 2 — Core concepts & Tooling |    1    |
-| 3 — JSX                     |    3    |
-|                             | _**X**_ |
+| Kapittel                    |  Timer   |
+| :-------------------------- | :------: |
+| 1 — JavaScript              |    5     |
+| 2 — Core concepts & Tooling |    1     |
+| 3 — JSX                     |    3     |
+| 4 — Components              |    3     |
+| SUM                         | _**12**_ |
 
 Kommentar til hvert kapittel:
 
 - Kapittel 1: Kan klare seg med mindre, men det er nyttig å lære mer om grunnleggende JavaScript, særlig array‑manipulasjon.
 - Kapittel 2: Veldig basic om hvordan react settes opp...
 - Kapittel 3: Repetisjon om hva jsx er, men gøy å bruke litt tid på å gjøre oppgaven med tailwind etc.
+- Kapittel 4: Repetisjon om hva components er, artig oppgave for mengdetrening, savner typeScript...
