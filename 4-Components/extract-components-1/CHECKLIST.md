@@ -1,0 +1,5 @@
+- The `App` component now uses the `MovieItem` component instead of inline JSX
+- The `MovieItem` component accepts the movie as a prop
+- The `MovieItem` component is further broken down into smaller components with clear hierarchy (i.e, `MovieRatingDisplay`, `NowPlayingBanner`, `MovieImage`, `GenreTag`, `StarRating`)
+- Data flows correctly from parent to child through props
+- The refactored code maintains the same functionality as the original
