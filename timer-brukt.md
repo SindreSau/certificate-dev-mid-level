@@ -4,7 +4,8 @@
 | 2 — Core concepts & Tooling |    1     |
 | 3 — JSX                     |    3     |
 | 4 — Components              |    3     |
-| SUM                         | _**12**_ |
+| 5 — Events and Forms        |    3     |
+| SUM                         | _**15**_ |
 
 Kommentar til hvert kapittel:
 
