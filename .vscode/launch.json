@@ -6,7 +6,11 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:5173",
-            "webRoot": "${workspaceFolder}/5-Events-and-forms/Form-playground-react/src"
+            "webRoot": "${workspaceFolder}/5-Events-and-forms/create-a-movie-form-1",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "/src/*": "${webRoot}/src/*"
+            }
         },
         {
             "type": "node",

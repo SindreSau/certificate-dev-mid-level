@@ -1,16 +1,24 @@
+import { useState } from 'react';
+
 const allGenres = ['Drama', 'Crime', 'Action', 'Comedy', 'Thriller', 'Horror', 'Sci-Fi', 'Fantasy', 'Romance'];
 
-export default function MovieForm({ movie, onSave, onCancel }) {
-    const handleChange = (e) => {
-        return e.target.value;
-    };
+export default function MovieFormWState({ movie, onCancel }) {
+    const [title, setTitle] = useState(movie?.name);
+    const [description, setDescription] = useState(movie?.description);
+    const [imageUrl, setImageUrl] = useState(movie?.image);
+    const [genres, setGenres] = useState(movie?.genres);
+    const [inTheaters, setInTheaters] = useState(movie?.inTheaters);
 
-    const handleGenreChange = (e) => {
-        return [...e.target.selectedOptions];
-    };
+    function handleSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        formData.set('inTheaters', formData.get('inTheaters') ? true : false); // Checkboxes return "on" or nothing...
+        let formJson = Object.fromEntries(formData.entries());
+        console.log(formJson);
+    }
 
     return (
-        <form className='movie-form-container' onSubmit={onSave}>
+        <form className='movie-form-container' onSubmit={handleSubmit}>
             <div className='movie-form-input-wrapper'>
                 <label className='movie-form-label' htmlFor='movie-name-input'>
                     Title
@@ -20,8 +28,8 @@ export default function MovieForm({ movie, onSave, onCancel }) {
                     type='text'
                     id='movie-name-input'
                     name='title'
-                    defaultValue={movie?.name}
-                    onChange={handleChange}
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
                 />
             </div>
 
@@ -34,8 +42,8 @@ export default function MovieForm({ movie, onSave, onCancel }) {
                     type='textarea'
                     id='movie-description-input'
                     name='description'
-                    defaultValue={movie?.description}
-                    onChange={handleChange}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                 />
             </div>
 
@@ -47,9 +55,9 @@ export default function MovieForm({ movie, onSave, onCancel }) {
                     className='movie-form-input'
                     type='text'
                     id='movie-image-url-input'
-                    name='image'
-                    defaultValue={movie?.image}
-                    onChange={handleChange}
+                    name='imageUrl'
+                    value={imageUrl}
+                    onChange={(e) => setImageUrl(e.target.value)}
                 />
             </div>
 
@@ -61,10 +69,9 @@ export default function MovieForm({ movie, onSave, onCancel }) {
                     multiple
                     className='movie-form-select'
                     id='movie-genre-dropdown'
-                    name='genres'
-                    defaultValue={movie?.genres}
-                    // defaultChecked={movie?.genres}
-                    onChange={handleGenreChange}>
+                    name='genre'
+                    defaultValue={genres}
+                    onChange={(e) => setGenres(...e.target.selectedOptions)}>
                     {allGenres.map((genre) => (
                         <option key={genre}>{genre}</option>
                     ))}
@@ -77,8 +84,8 @@ export default function MovieForm({ movie, onSave, onCancel }) {
                     type='checkbox'
                     name='inTheaters'
                     id='in-theaters-checkbox'
-                    defaultChecked={movie?.inTheaters || false}
-                    onChange={handleChange}
+                    defaultChecked={inTheaters}
+                    onChange={(e) => setInTheaters(e.target.checked)}
                 />
                 <label className='movie-form-checkbox-label' htmlFor='in-theaters-checkbox'>
                     In Theaters
