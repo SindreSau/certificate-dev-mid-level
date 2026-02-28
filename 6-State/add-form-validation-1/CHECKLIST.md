@@ -1,0 +1,10 @@
+- Typing in the name input updates the name state
+- Typing in the description textarea updates the description state
+- Typing in the image input updates the image state
+- Selecting genres updates the genres state array
+- Checking/unchecking the inTheaters checkbox updates the inTheaters state
+- Submitting with empty name shows "Movie name is required" error message
+- Submitting with no genres selected shows "At least one genre is required" error message
+- Error messages clear when user starts typing/selecting after an error
+- Form prevents submission when validation errors exist
+- Form submits successfully when all required fields are valid

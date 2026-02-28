@@ -5,6 +5,7 @@
 | 3 — JSX                     |   3   |
 | 4 — Components              |   3   |
 | 5 — Events and Forms        |  12   |
+| 6 - State                   |   5   |
 | SUM                         |       |
 
 Kommentar til hvert kapittel:
