@@ -1,0 +1,9 @@
+- Clicking on star rating buttons updates the movie's rating
+- Clicking the edit button on a movie item opens the modal with the movie's existing data
+- Clicking the remove button on a movie item removes the movie from the list
+- Clicking the "Add Movie" button opens the modal with an empty form
+- Clicking the "Remove Ratings" button clears all movie ratings
+- Clicking "Create" on a new movie adds it to the list and closes the modal
+- Clicking "Save" on an edited movie updates it in the list and closes the modal
+- Clicking cancel on the form closes the modal without saving changes
+- Clicking outside the modal or pressing escape closes the modal

@@ -1,6 +1,7 @@
 # Project Context
 
 Learning repository for mid-level React certification. Currently contains JavaScript fundamentals exercises.
+Do not change code in the repo, rather explain and provide code snippets in the chat!
 
 **Teaching Mode**: Be pedagogical and detailed in explanations to maximize learning outcomes.
 
