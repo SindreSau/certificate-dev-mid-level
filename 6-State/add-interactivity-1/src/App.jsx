@@ -10,29 +10,38 @@ export default function App() {
     const [movies, setMovies] = useState(ALL_MOVIES.items);
 
     function handleSave(data) {
-        if (movies.filter((movie) => data.id === movie.id).length < 1) {
-            setMovies([...movies, data]);
+        const isExisting = movies.find((movie) => data.id === movie.id);
+        console.log(isExisting);
+
+        if (!isExisting) {
+            addToMovies(data);
         } else {
-            setMovies(
-                movies.map((movie) => {
-                    if (movie.id === data.id) {
-                        return data;
-                    } else {
-                        return movie;
-                    }
-                }),
-            );
+            updateMovies(data);
         }
         setModalOpen(false);
     }
 
-    function handleAddMovie() {
-        setCurrentMovie({ id: movies.length + 1, rating: 0 });
-        setModalOpen(true);
+    function addToMovies(data) {
+        data.id = movies.length + 1;
+        console.log(data);
+
+        setMovies([...movies, data]);
+    }
+
+    function updateMovies(data) {
+        setMovies(
+            movies.map((movie) => {
+                if (movie.id === data.id) {
+                    return data;
+                } else {
+                    return movie;
+                }
+            }),
+        );
     }
 
     function handleRemoveMovie(id) {
-        setMovies(movies.filter((movie) => movie.id != id));
+        setMovies((movies) => movies.filter((movie) => movie.id != id));
     }
 
     function handleRemoveRatings() {
@@ -44,7 +53,6 @@ export default function App() {
     }
 
     function handleRatingChange(id, newRating) {
-        console.log('changing rating: ' + id + ' to ' + newRating);
         setMovies(
             movies.map((movie) => {
                 if (movie.id === id) {
@@ -77,7 +85,7 @@ export default function App() {
                     <button className='btn btn-secondary' onClick={handleRemoveRatings}>
                         Remove ratings
                     </button>
-                    <button className='btn btn-primary' onClick={handleAddMovie}>
+                    <button className='btn btn-primary' onClick={() => setModalOpen(true)}>
                         Add Movie
                     </button>
                 </div>
