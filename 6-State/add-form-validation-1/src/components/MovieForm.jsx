@@ -8,7 +8,7 @@ export default function MovieForm({ movie, onSave, onCancel }) {
         genres: movie?.genres || [],
     });
     const [errors, setErrors] = useState({});
-    const [status, setStatus] = useState(''); // loading
+    const [status, setStatus] = useState(''); // loading or error
 
     function handleChange(e) {
         const { name, value } = e.target;
