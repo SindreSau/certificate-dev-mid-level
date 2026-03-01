@@ -5,8 +5,8 @@
 | 3 — JSX                     |   3   |
 | 4 — Components              |   3   |
 | 5 — Events and Forms        |  12   |
-| 6 - State                   |   5   |
-| SUM                         |       |
+| 6 - State                   |   9   |
+| SUM                         |  33   |
 
 Kommentar til hvert kapittel:
 
@@ -17,3 +17,4 @@ Kommentar til hvert kapittel:
 - Kapittel 5: Krever mer dypdykk i react docs og blogpost, terping, googling og eksperimentering for å denne biten.
     - Hva er forskjellen på controlled og uncontrolled components
     - Hvordan håndtere forms i react uten useState - heller bruke FormData og e.target.value++
+- Kapittel 6: Går ganske i dybden på useState som var veldig nyttig. Tidligere har jeg brukt biblioteker som zod, react-hook-form etc. for å slippe å håndtere avansert bruk av state i forms, men her blir man tvunget til å jobbe rundt dette.
