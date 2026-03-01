@@ -4,10 +4,11 @@ const genres = ['Drama', 'Crime', 'Action', 'Comedy', 'Thriller', 'Horror', 'Sci
 
 export default function MovieForm({ movie, onSave, onCancel }) {
     const [values, setValues] = useState({
-        name: '',
-        genres: [],
+        name: movie?.name || '',
+        genres: movie?.genres || [],
     });
     const [errors, setErrors] = useState({});
+    console.log(movie);
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -98,7 +99,7 @@ export default function MovieForm({ movie, onSave, onCancel }) {
                         name='genres'
                         className='movie-form-select'
                         multiple
-                        value={values.genre}
+                        value={values.genres}
                         onChange={handleGenreChange}>
                         {genres.map((genre) => (
                             <option key={genre} value={genre}>
