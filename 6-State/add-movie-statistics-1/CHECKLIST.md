@@ -1,0 +1,7 @@
+- When loading the app, the total number of movies displays in the header
+- When loading the app, the average rating of all movies displays in the header
+- When no movies have ratings, the average rating shows "N/A"
+- When movies have valid ratings, the average rating calculates correctly
+- When displaying the average rating, it shows with one decimal place
+- When adding or removing movies, the statistics update automatically
+- When changing movie ratings, the statistics update automatically
