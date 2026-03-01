@@ -1,0 +1,6 @@
+- When mounting the app, it fetches movie data asynchronously
+- When fetching data, the app displays skeleton loading placeholders
+- When data has loaded, the app shows actual movie items
+- When opening the modal, it auto-focuses the name input field
+- When pressing the escape key, the modal closes
+- When clicking outside the modal area, the modal closes

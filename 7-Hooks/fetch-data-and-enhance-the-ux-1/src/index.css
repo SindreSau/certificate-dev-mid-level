@@ -42,6 +42,10 @@ select {
     @apply bg-blue-500 hover:bg-blue-600 text-white focus:ring-blue-400 hover:shadow-md;
 }
 
+.skeleton {
+    @apply h-4 m-2 bg-gray-200 animate-pulse rounded-lg;
+}
+
 .app {
     @apply flex flex-col items-center justify-start gap-8 p-6 min-h-screen bg-gray-50;
 }
@@ -101,7 +105,7 @@ select {
 }
 
 .movie-form-error {
-    @apply text-red-600 text-sm min-h-5;
+    @apply text-red-600 text-sm min-h-[1.25rem];
 }
 
 .movie-actions-list-wrapper {
@@ -161,7 +165,7 @@ select {
 }
 
 .movie-item-theaters-banner {
-    @apply absolute top-3 left-3 bg-linear-to-r from-red-600 to-red-500 text-white z-10 rounded-full px-3 py-1 shadow-sm flex items-center;
+    @apply absolute top-3 left-3 bg-gradient-to-r from-red-600 to-red-500 text-white z-10 rounded-full px-3 py-1 shadow-sm flex items-center;
 }
 
 .movie-item-theaters-banner-text {
@@ -173,7 +177,7 @@ select {
 }
 
 .movie-item-title-wrapper {
-    @apply shrink-0;
+    @apply flex-shrink-0;
 }
 
 .movie-item-title {
