@@ -23,13 +23,22 @@ export default function App() {
         showForm();
     };
 
-    const saveMovie = (data) => {
-        const isExisting = movies.find((movie) => movie.id === data.id);
-        if (isExisting) {
-            updateMovie(data);
-        } else {
-            addMovie(data);
-        }
+    const saveMovie = async (data) => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (data.id % 2 != 0) {
+                    const isExisting = movies.find((movie) => movie.id === data.id);
+                    if (isExisting) {
+                        updateMovie(data);
+                    } else {
+                        addMovie(data);
+                    }
+                    resolve('success');
+                } else {
+                    reject('500 - Server error');
+                }
+            }, 1500);
+        });
     };
 
     const updateMovie = (data) => {
@@ -68,7 +77,7 @@ export default function App() {
                 <MovieForm
                     movie={currentMovie}
                     onSave={(data) => {
-                        saveMovie(data);
+                        return saveMovie(data);
                     }}
                     onCancel={() => {
                         hideForm();

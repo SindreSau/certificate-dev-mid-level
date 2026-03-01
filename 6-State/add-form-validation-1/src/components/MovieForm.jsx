@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const genres = ['Drama', 'Crime', 'Action', 'Comedy', 'Thriller', 'Horror', 'Sci-Fi', 'Fantasy', 'Romance'];
+const allGenres = ['Drama', 'Crime', 'Action', 'Comedy', 'Thriller', 'Horror', 'Sci-Fi', 'Fantasy', 'Romance'];
 
 export default function MovieForm({ movie, onSave, onCancel }) {
     const [values, setValues] = useState({
@@ -8,7 +8,7 @@ export default function MovieForm({ movie, onSave, onCancel }) {
         genres: movie?.genres || [],
     });
     const [errors, setErrors] = useState({});
-    console.log(movie);
+    const [status, setStatus] = useState(''); // loading
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -16,9 +16,14 @@ export default function MovieForm({ movie, onSave, onCancel }) {
     }
 
     function handleGenreChange(e) {
-        const { name, selectedOptions } = e.target;
-        setValues({ ...values, [name]: selectedOptions });
+        console.log(e.target.name);
+
+        const selectedOptions = Array.from(e.target.selectedOptions).map((option) => option.value);
+
+        setValues({ ...values, [e.target.name]: selectedOptions });
     }
+
+    console.log(values.genres);
 
     function validateForm() {
         let errors = {};
@@ -34,10 +39,11 @@ export default function MovieForm({ movie, onSave, onCancel }) {
         return errors;
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const errors = validateForm();
+
         if (Object.keys(errors).length > 0) {
             setErrors(errors);
             return;
@@ -49,7 +55,16 @@ export default function MovieForm({ movie, onSave, onCancel }) {
             genres: formData.getAll('genres'),
             id: movie?.id || formData.get('id'),
         };
-        onSave(data);
+
+        setStatus('loading');
+        try {
+            await onSave(data);
+            setStatus('');
+        } catch (e) {
+            console.error(e);
+            setErrors({ global: 'Server error - please try again later' });
+            setStatus('error');
+        }
     };
 
     return (
@@ -101,7 +116,7 @@ export default function MovieForm({ movie, onSave, onCancel }) {
                         multiple
                         value={values.genres}
                         onChange={handleGenreChange}>
-                        {genres.map((genre) => (
+                        {allGenres.map((genre) => (
                             <option key={genre} value={genre}>
                                 {genre}
                             </option>
@@ -125,8 +140,11 @@ export default function MovieForm({ movie, onSave, onCancel }) {
                         Cancel
                     </button>
                     <button type='submit' className='btn btn-primary'>
-                        {movie?.id ? 'Save' : 'Create'}
+                        {status == 'loading' ? 'Loading' : movie?.id ? 'Save' : 'Create'}
                     </button>
+                </div>
+                <div className='mt-4 flex justify-end'>
+                    <span className='movie-form-error'>{errors.global}</span>
                 </div>
             </form>
         </div>
