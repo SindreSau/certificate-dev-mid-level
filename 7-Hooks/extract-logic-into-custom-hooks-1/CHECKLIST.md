@@ -1,0 +1,6 @@
+- The `useFetch` Hook accepts a fetch function parameter and an initial value
+- The `useFetch` Hook uses the "ignore" pattern to prevent race conditions
+- The App component uses the `useFetch` Hook instead of manual data fetching
+- The `useModal` Hook combines escape key and click-outside functionality
+- The Modal component uses the `useModal` Hook instead of inline event listeners
+- The app maintains all existing functionality using the custom Hooks
